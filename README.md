@@ -3,7 +3,7 @@
 Autor: Fernando Andrade
 
 Descrição:
-Aplicação web simples para classificar e-mails em Produtivo ou Improdutivo e sugerir uma resposta automática.
+Aplicação para classificar e-mails em Produtivo ou Improdutivo e sugerir uma resposta automática.
 
 ## Conteúdo do repositório
 - `app.py` — backend (Flask).
