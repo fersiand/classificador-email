@@ -1,4 +1,4 @@
-# Classificador de E-mails
+```# Classificador de E-mails
 
 Autor: Fernando Andrade
 
@@ -15,7 +15,7 @@ Aplicação web simples para classificar e-mails em Produtivo ou Improdutivo e s
 - `classificador.log` — criado em runtime para registrar classificações.
 
 ## Como executar localmente
-```1. Crie e ative um virtualenv:
+1. Crie e ative um virtualenv:
    bash
    python -m venv venv
    source venv/bin/activate   # macOS/Linux
