@@ -1,0 +1,72 @@
+/* Corpo da página */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 24px;
+    background: #f5f7fb;
+    color: #0b1220;
+}
+
+/* Cabeçalho */
+header h1 {
+    margin: 0 0 6px 0;
+    color: #1f2937;
+}
+
+/* Área principal */
+main {
+    margin-top: 12px;
+    max-width: 900px;
+}
+
+/* Área de texto para o e-mail */
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    box-sizing: border-box;
+}
+
+/* Botão principal */
+button {
+    background: #2563eb;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Mostram resultados */
+.card {
+    background: white;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(12,16,30,0.06);
+    margin-top: 12px;
+}
+
+/* Área para mostrar o conteúdo do e-mail com fundo escuro */
+pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+    background: #0b1220;
+    color: #dbeafe;
+    padding: 12px;
+    border-radius: 6px;
+    overflow: auto;
+}
+
+/* Mensagem flash */
+.flashes {
+    list-style: none;
+    padding: 0;
+}
+.flash {
+    margin-top: 8px;
+    padding: 8px;
+    border-radius: 6px;
+}
+.flash.warning { background: #fef3c7; color: #92400e; }
+.flash.danger  { background: #fee2e2; color: #991b1b; }

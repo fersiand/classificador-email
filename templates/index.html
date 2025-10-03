@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Configurações básicas do documento -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{{ app_name or "Classificador de E-mails" }}</title>
+    <!-- Link para o CSS (arquivo está em static/style.css) -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+    <!-- Cabeçalho com título e instruções -->
+    <header>
+        <h1>{{ app_name or "Classificador de E-mails" }}</h1>
+        <p>Cole o texto do e-mail abaixo ou envie um arquivo (.txt / .pdf).</p>
+    </header>
+
+    <!-- Formulário principal: envia para a mesma rota via POST -->
+    <!-- enctype="multipart/form-data" é necessário para envio de arquivos -->
+    <main>
+        <form method="POST" enctype="multipart/form-data">
+            <!-- Campo de texto para colar ou digitar o e-mail -->
+            <label for="email_text">Texto do e-mail:</label><br />
+            <textarea id="email_text" name="email_text" rows="8" placeholder="Cole o conteúdo do e-mail aqui..."></textarea>
+            <br /><br />
+
+            <!-- Campo para enviar arquivo -->
+            <label for="email_file">Ou envie um arquivo (.txt ou .pdf):</label><br />
+            <input id="email_file" type="file" name="email_file" accept=".txt,.pdf" />
+            <br /><br />
+
+            <!-- Botão para enviar o formulário -->
+            <button type="submit">Classificar</button>
+        </form>
+
+        <!-- Mostra mensagens flash (erro/aviso) automaticamente -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="flashes">
+                {% for category, message in messages %}
+                    <li class="flash {{ category }}">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Se existir resultado, mostramos em blocos -->
+        {% if resultado %}
+            <section class="resultado">
+                <div class="card">
+                    <h3>Conteúdo do e-mail (extraído)</h3>
+                    <pre>{{ resultado.texto }}</pre>
+                </div>
+
+                <div class="card">
+                    <h3>Categoria</h3>
+                    <p><strong>{{ resultado.categoria }}</strong></p>
+                </div>
+
+                <div class="card">
+                    <h3>Resposta sugerida</h3>
+                    <p>{{ resultado.resposta }}</p>
+                </div>
+            </section>
+        {% endif %}
+    </main>
+
+    <footer>
+        <small>Autor: Fernando Andrade.</small>
+    </footer>
+</body>
+</html>
